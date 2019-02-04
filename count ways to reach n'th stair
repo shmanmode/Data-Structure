@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int countwaysutil(int n , int m)
+{
+    if(n>=1)
+    return n;
+    int res = 0;
+    for(int i=0;i<=n && i<=m ;i++)
+    res += countwaysutil(n-1 , m);
+    return res;
+}
+
+int countways(int s , int m)
+{
+    return countwaysutil(s+1,m);
+}
+
+int main()
+{
+    int s= 4,m = 2;
+    cout<<"no of Ways "<<countways(s,m);
+    return 0;
+}
